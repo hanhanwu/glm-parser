@@ -234,10 +234,7 @@ class Sentence():
         :return: None
         """
 
-        # self.current_global_vector = self.convert_list_vector_to_dict(self.get_global_vector(edge_list))
-        # ~self.cache_feature_for_edge_list(edge_list)
-
-        return self.convert_list_vector_to_dict(self.get_global_vector(edge_list))
+        return FeatureVector(self.get_global_vector(edge_list))
 
     def set_second_order_cache(self):
         self.second_order_cache = {}
@@ -254,12 +251,6 @@ class Sentence():
     # ~    # Compute cached feature for a given edge list
     # ~    self.fgen.cache_feature_for_edge_list(edge_list)
     # ~    return
-
-    def convert_list_vector_to_dict(self, fv):
-        ret_fv = FeatureVector()
-        for i in fv:
-            ret_fv[i] += 1
-        return ret_fv
 
     # Both 1st and 2nd order
     def get_global_vector(self, edge_list=None):
