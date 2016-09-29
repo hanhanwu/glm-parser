@@ -14,6 +14,7 @@ from data.file_io import fileRead, fileWrite
 from data.data_pool import DataPool
 from weight.weight_vector import WeightVector
 from logger.loggers import logging, init_logger
+from feature.feature_vector import FeatureVector
 
 from evaluate.tagger_evaluator import Evaluator
 from data.pos_tagset_reader import read_tagset
@@ -81,7 +82,7 @@ class PosTagger():
                                 w_vector    = w_vector,
                                 tagset      = tagset,
                                 default_tag = default_tag)
-            current_global_vector = sentence.convert_list_vector_to_dict(sentence.get_local_vector(poslist=output))
+            current_global_vector = FeatureVector(sentence.get_local_vector(poslist=output))
             return current_global_vector
         f_argmax = functools.partial(tagger_f_argmax,
                                      tagger=self.tagger,
