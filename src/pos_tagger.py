@@ -174,7 +174,7 @@ if __name__ == '__main__':
     # Dealing with arguments here
     if True:  # Adding arguments
         arg_parser = argparse.ArgumentParser(
-            description="""Part Of Speech (GLM) Tagger
+            description="""Part Of Speech (POS) Tagger
             Version %s""" % __version__)
         arg_parser.add_argument('config', metavar='CONFIG_FILE', nargs='?',
             help="""specify the config file. This will load all the setting from the config file,
